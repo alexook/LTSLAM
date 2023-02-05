@@ -50,7 +50,7 @@ endif (POLICY CMP0067)
 
 project(absl LANGUAGES CXX)
 include(CTest)
-
+add_compile_options(-fPIC)
 # Output directory is correct by default for most build setups. However, when
 # building Abseil as a DLL, it is important to have the DLL in the same
 # directory as the executable using it. Thus, we put all executables in a single
