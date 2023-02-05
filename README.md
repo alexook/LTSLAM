@@ -284,25 +284,3 @@ make -j6
 运行结果如下：
 
 ![](./image/demos_pose.gif)
-
-# 5 Contact Me
-
-我们有微信群和QQ群：<font color='green'> 710288823 </font>，你可以加入我们一起成长，所有代码和教学视频免费。
-
-![](./image/aibot_beginer_qq.png)
-
-```
-email ： quandy2020@126.com
-```
-
-加入我们吧！！！
-
-# 6 Github贡献者
-
-* 123mrchen
-* Ze
-* Minghao HU
-* onwaying
-
-![github_gxz](./github_gxz.png)
-
