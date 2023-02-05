@@ -5,10 +5,7 @@ set -e
 CURR_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 . ${CURR_DIR}/installer_base.sh
 
-wget https://github.com/opencv/opencv/archive/refs/tags/4.5.5.zip -O opencv.zip &&
-unzip opencv.zip && \
-wget https://github.com/opencv/opencv_contrib/archive/refs/tags/4.5.5.zip -O opencv_contrib.zip && \
-unzip opencv_contrib.zip && \
+
 cd opencv-4.5.5 && \
 mkdir build && \
 cd build && \
@@ -32,10 +29,7 @@ cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.5.5/modules \
     -DPYTHON_INCLUDE_DIR=$(python3.8 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
     -DPYTHON_PACKAGES_PATH=$(python3.8 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") .. \
 && make -j6 && make install \
-&& rm ../../opencv.zip \
-&& rm ../../opencv_contrib.zip \
-&& rm -r ../../opencv-4.5.5 \
-&& rm -r ../../opencv_contrib-4.5.5
+
 
 ldconfig
 ok "Successfully installed OpenCV opencv-4.5.5."

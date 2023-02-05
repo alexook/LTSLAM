@@ -9,9 +9,9 @@ if [ -d LTSLAM ]; then
     rm -rf ./LTSLAM
 fi
 mkdir LTSLAM
-cp -r ${CONTEXT}/../* ./LTSLAM
+sudo cp -r ${CONTEXT}/../* ./LTSLAM
 
-REPO=xslam/ltslam
+REPO=myslam/ltslam
 TAG="${REPO}"
 
 # Fail on first error.

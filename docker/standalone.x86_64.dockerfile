@@ -1,12 +1,10 @@
 FROM ros:noetic-perception
 
-MAINTAINER duyongquan <quandy2020@126.com>
-
 # sources
 # sources
-RUN cp -a /etc/apt/sources.list /etc/apt/sources.list.bak
-RUN sed -i "s@http://.*archive.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
-RUN sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
+# RUN cp -a /etc/apt/sources.list /etc/apt/sources.list.bak
+# RUN sed -i "s@http://.*archive.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
+# RUN sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
 
 
 RUN apt-get update -y && \
@@ -40,6 +38,11 @@ RUN apt-get update -y && \
     software-properties-common \
     unzip \
     vim \
+    net-tools \
+    ranger \
+    libgtk2.0-dev \
+    libcanberra-gtk-module \
+    libqglviewer-dev-qt5 \
     locate \
     libfmt-dev \
     python3-pip \
@@ -58,6 +61,7 @@ RUN apt-get update -y && \
     libpq-dev \
     ros-noetic-tf2-eigen \
     ros-noetic-urdf \
+    ros-noetic-rviz \
     zip && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo '\n\n\n' 
@@ -69,7 +73,7 @@ COPY ./install /tmp/install
 COPY ./LTSLAM /x-slam
 
 # RUN bash /tmp/installers/install_cmake.sh
-RUN bash /tmp/install/install_python_modules.sh
+# RUN bash /tmp/install/install_python_modules.sh
 RUN bash /tmp/install/install_eigen3.sh
 RUN bash /tmp/install/install_sophus.sh
 RUN bash /tmp/install/install_gflags.sh
@@ -77,7 +81,7 @@ RUN bash /tmp/install/install_google_test.sh
 RUN bash /tmp/install/install_ceres_solver.sh
 RUN bash /tmp/install/install_abseil-cpp.sh
 RUN bash /tmp/install/install_g2o.sh
-RUN bash /tmp/install/install_opencv.sh
+# RUN bash /tmp/install/install_opencv.sh
 RUN bash /tmp/install/install_protobuf.sh
 RUN bash /tmp/install/install_pangolin.sh
 RUN bash /tmp/install/install_dbow3.sh
